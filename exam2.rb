@@ -5,63 +5,14 @@
 # Тесты для примеров и проверки:
 # coincidence([1, 2, 3, 4, 5], (3..5)) # => [3, 4, 5]
 # coincidence() # => []
-# coincidence([nil, 1, 'foo', 4, 2, 2.5], (1..3)) # => [1, 2, 2.5] 
-questarrays = [
-	[1,2.5,3,4,5,3..5],
-	[],
-	[nil, 1, 'foo', 4, 2, 2.5, (1..3)]
-]
-preic = (2..5)
+# coincidence([nil, 1, 'foo', 4, 2, 2.5], (1..3)) # => [1, 2, 2.5]
 
 
-
-def is_truequest?(num = nil)
-	if num.class == Integer or num.class == Float
-		return true
-	else
-		return false
-	end
+def coincedence(array = [], range = nil)
+	array.select{|x| range.include?(x)}
 end
 
-def coincedence(array = nil, lots = nil)
-	a = []
-	if array == nil || lots == nil
-		return a
-	else
-
-		if array.to_a.empty?
-			return a
-		else
-			array.each {|elem|
-				if is_truequest?(elem) == true 
-					if elem >= lots.to_a.first && elem <= lots.to_a.last
-						a << elem
-					else
-						#-----------------
-					end
-				else
-
-				end 
-			}
-			return a
-		end
-	end
-end
-
- begin
- 	puts "Вывод тестового задания:"
- 	questarrays.each{|elem| 
- 		puts coincedence(elem[0, elem.size-1], elem.pop)
- 		puts "_________________"
- 	}
-	
- rescue ArgumentError
- 	puts []
- end
 
 
-puts coincedence()
-puts "______________"
-puts coincedence([1,2])
-puts "________________"
+
 
