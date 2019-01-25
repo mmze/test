@@ -5,10 +5,12 @@
 # sort_array([]) # => []
 # sort_array([2, 4, 6, 8]) # => [8, 4, 6, 2, 2]
 # sort_array([1]) # => [1, 1]
-# sort_array([1, 2, 1, 3]) # => [3, 2, 3, 1, 1] 
+# sort_array([1, 2, 1, 3]) # => [3, 2, 3, 1, 1]
 
 
-
+		# x = x unless x == min or x == max
+		# x = min if x == max
+		# x = max if x == min
 
 questarrays = [
 	[],
@@ -19,34 +21,23 @@ questarrays = [
 
 ]
 
-def sort_array(array = nil)
-	if array.class == NilClass
-		return []
-	elsif array.empty?
-		return array
-	else
-		min = array.min
-		max = array.max
-		a = array.collect{|elem|
-		  if elem ==  min
-		    elem = max
-		  elsif elem ==  max
-		    elem = min
-		  else
-		    elem = elem
-		  end
-		}
-		a = a<<min
-		return a
+def sort_array(array = [])
+	array if array.empty? || nil?
+	min = array.min
+	max = array.max
+	a = array.collect do |x|
+		if x == min
+			x = max
+		elsif x == max
+			x = min
+		else
+			x = x
+		end
 	end
+	a << min
 end
 
 
-puts "Вывод тестовых заданий:"
-questarrays.each{|elem| 
-		puts sort_array(elem)
-		puts "----------------"
-	}
 
-puts sort_array()
-puts "----------------"
+
+puts sort_array([2,4,6,8])
