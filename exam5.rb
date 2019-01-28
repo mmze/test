@@ -1,13 +1,10 @@
 def date_in_future(int)
-	if int.class == Integer
-		b = (Time.now + int.to_i.days)\
+	if int.is_a? Integer
+		(Time.now + int.to_i.days)\
 			.strftime("%d-%m-%Y %H:%M:%S")
-		return b
 	else
-		b = Time.now.strftime("%d-%m-%Y %H:%M:%S")
-		return b
+		Time.now.strftime("%d-%m-%Y %H:%M:%S")
 	end
-	
 end
 
 

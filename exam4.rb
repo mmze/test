@@ -11,6 +11,8 @@
 		# x = x unless x == min or x == max
 		# x = min if x == max
 		# x = max if x == min
+	# array.each.collect{ |a| (a == min)? a = max : a }
+	# array.each.collect{ |a| (a == max)? a = min : a }
 
 questarrays = [
 	[],
@@ -22,22 +24,17 @@ questarrays = [
 ]
 
 def sort_array(array = [])
-	array if array.empty? || nil?
+	array unless array.empty? or array.size>1
 	min = array.min
 	max = array.max
-	a = array.collect do |x|
-		if x == min
-			x = max
-		elsif x == max
-			x = min
-		else
-			x = x
-		end
-	end
-	a << min
+	imin = array.each_with_index.find_all{|x, i| x == array.min}.map {|x,y| y }
+	imax = array.each_with_index.find_all{|x, i| x == array.max}.map {|x,y| y }
+	imin.each{|x| array[x] = max}
+	imax.each{|y| array[y] = min}
+	array<<min
 end
 
 
 
 
-puts sort_array([2,4,6,8])
+puts sort_array([1,2,1,3])
