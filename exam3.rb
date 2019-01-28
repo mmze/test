@@ -6,7 +6,22 @@
 # max_odd([21.0, 2, 3, 4, 4]) # => 21
 # max_odd(['ololo', 2, 3, 4, [1, 2], nil]) # => 3
 # max_odd(%w[ololo fufufu]) # => nil
-# max_odd([2, 2, 4]) # => nil 
+# max_odd([2, 2, 4]) # => nil
+# def max_odd(array = nil)
+# 	if array.class == NilClass
+# 		return nil
+# 	else
+# 		a = array.find_all{|key| key.class == Integer || key.class == Float}.\
+# 				find_all{|i| i.round % 2 == 1}.max.to_i
+# 		if a == 0
+
+# 			return nil
+# 		else
+# 			return a
+# 		end
+# 	end
+
+# end
 
 questarrays = [
 	[1, 2, 3, 4, 4],
@@ -14,24 +29,13 @@ questarrays = [
 	['ololo', 2, 3, 4, [1, 2], nil],
 	%w[ololo fufufu],
 	[2, 2, 4],
-	nil
+
 
 ]
 def max_odd(array = nil)
-	if array.class == NilClass
-		return nil
-	else
-		a = array.find_all{|key| key.class == Integer || key.class == Float}.\
-				find_all{|i| i.round % 2 == 1}.max.to_i
-		if a == 0 
-
-			return nil
-		else
-			return a
-		end
-	end
-
+	nil if array == nil
+	array.compact.flatten.find_all{|x| x.is_a?(Integer) or x.is_a?(Float)}.select{|x| x.to_int.odd? }.max
 end
 
 puts "Вывод тестовых заданий: "
-questarrays.each{|elem| puts max_odd(elem)}
+questarrays.each{|elem| puts "#{elem} "+max_odd(elem).to_s}
