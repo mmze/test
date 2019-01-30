@@ -7,10 +7,12 @@
 # multiply_numbers('1234') # => 24
 # multiply_numbers('sssdd34') # => 12
 # multiply_numbers(2.3) # => 6
-# multiply_numbers([5, 6, 4]) # => 120 
+# multiply_numbers([5, 6, 4]) # => 120
+# inputs.to_s.gsub(/[^0-9]/, "").split('').each{|x| x = x.to_i * x.to_i}
 
 
 questarrays = [
+	nil,
 	"ss",
 	"1234",
 	"sssdd34",
@@ -20,26 +22,8 @@ questarrays = [
 ]
 
 def multiply_numbers(inputs = nil)
-	if inputs.class == NilClass
-		return nil
-	else
-		i = 1
-		i.to_i
-		inputs.to_s.gsub(/[^0-9]/, "").split('').each{|elem|
-			if elem.to_i == 0
-				return nil
-			else
-			i = i.to_i * elem.to_i
-		end
-
-		}
-		if i == 1 
-			return nil
-		else
-
-			return i
-		end
-	end
+	return nil if inputs.nil? or inputs.to_s.gsub(/[^0-9]/, "").split('').size == 0
+	inputs.to_s.gsub(/[^0-9]/, "").split('').inject{|result, x| result.to_i * x.to_i}
 end
 
 puts "Вывод тестовых заданий: "

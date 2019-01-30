@@ -8,7 +8,7 @@
 # Тест для примеров и проверки:
 # combine_anagrams(%w[cars for potatoes racs four scar creams scream] # =>
 # [ ["cars", "racs", "scar"], ["four"], ["for"], ["potatoes"], ["creams",
-# "scream"] ] 
+# "scream"] ]
 
 questarrays = %w[cars for potatoes racs four scar creams scream]
 
@@ -16,21 +16,11 @@ questarrays = %w[cars for potatoes racs four scar creams scream]
 
 
 def combine(array = nil)
-	# перебериаю объекты массива и формирую хэш,
-	# где ключом хеша становятся сортированный буквы объекта, при этом значением - сам объект
-	# к одинаковым ключам объекты просто добавляются +=  :)
-	# затем вывожу только значения хеша
-	if array.class == NilClass
-		return nil
-	elsif array.class == Array
-		combarray = array.each_with_object(Hash.new []){|elem, hash| 
+	return nil unless array.is_a?(Array) or !array.nil?
+		combarray = array.each_with_object(Hash.new []) do |elem, hash|
 			hash[elem.chars.sort] += [elem]
-		}
-		a = combarray.values
-		return a
-	else 
-		return nil
-	end
+		end
+		combarray.values
 end
 
 puts combine(questarrays)
