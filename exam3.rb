@@ -29,13 +29,14 @@ questarrays = [
 	['ololo', 2, 3, 4, [1, 2], nil],
 	%w[ololo fufufu],
 	[2, 2, 4],
-
+	nil
 
 ]
 def max_odd(array = nil)
-	nil if array == nil
+	nil if array.is_a? NilClass
 	array.compact.flatten.find_all{|x| x.is_a?(Integer) or x.is_a?(Float)}.select{|x| x.to_int.odd? }.max
 end
 
-puts "Вывод тестовых заданий: "
-questarrays.each{|elem| puts "#{elem} "+max_odd(elem).to_s}
+# puts "Вывод тестовых заданий: "
+# questarrays.each{|elem| puts "#{elem} "+max_odd(elem).to_s}
+max_odd(nil)

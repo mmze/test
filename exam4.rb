@@ -24,14 +24,9 @@ questarrays = [
 ]
 
 def sort_array(array = [])
-	array unless array.empty? or array.size>1
-	min = array.min
-	max = array.max
-	imin = array.each_with_index.find_all{|x, i| x == array.min}.map {|x,y| y }
-	imax = array.each_with_index.find_all{|x, i| x == array.max}.map {|x,y| y }
-	imin.each{|x| array[x] = max}
-	imax.each{|y| array[y] = min}
-	array<<min
+		min = array.min
+    max = array.max
+    array.each_with_index{|x, y| array[y] = max if x ==  min; array[y] = min if x == max}<<min
 end
 
 
