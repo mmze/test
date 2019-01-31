@@ -6,7 +6,7 @@
 # palindrome?("Madam, I'm Adam!") # => true
 # palindrome?(333) # => true
 # palindrome?(nil) # => false
-# palindrome?("Abracadabra") # => false 
+# palindrome?("Abracadabra") # => false
 
 
 begin
@@ -16,8 +16,8 @@ rescue LoadError
     puts "!!!Не установлен gem: unicode!!!"
     puts "---Кирилица возможно обрабатывается неверно---"
 end
- 
-questions = 
+
+questions =
 [
     "A man, a plan, a canal -- Panama",
     "Madam, I'm Adam!",
@@ -28,35 +28,19 @@ questions =
     "",
     ''
 ]
- 
+
 
 def palindrome?(str = nil)
-    if str == nil 
-        return false
-    elsif str.class == NilClass
-        return false
-    elsif str.empty?
-        return true
-    elsif str.length == 1
-        return true
-    else
-        str = Unicode::downcase(str)
-        ignore_str = str.gsub(/[^0-9A-Za-z]/, '').downcase
-        if str.length == 0
-            return false
-        elsif ignore_str.reverse == ignore_str
-            return true
-        else
-            return false
-        end
-    end
+    return false unless str.is_a?(String) and !str.empty?
+    ignore_str = str.gsub(/[^0-9A-Za-z]/, '').downcase
+    ignore_str.reverse == ignore_str
 end
- 
+
  puts "Вывод тестовых заданий:"
  questions.each { |question|
      puts question.to_s+" --- "+
      palindrome?(question).to_s
  }
 
- 
+
 
