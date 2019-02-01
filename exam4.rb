@@ -21,11 +21,11 @@ def sort_array(array = [])
   max = array.max
   array.map do |x|
     if x == min
-      x = max
+      max
     elsif x == max
-      x = min
+      min
     else
-      x = x
+      x
     end
   end<<min
 end

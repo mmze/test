@@ -28,19 +28,23 @@ def victory_rules?(moves)
   return true if moves.uniq.size == 1
   early_move = %w[R P S]
   winner_strategy = [%w[R S], %w[P R], %w[S P], %w[S S], %w[P P], %w[R R]]
-  raise NoSuchStrategyError, "NoSuchStrategyError wrong_turn" if (early_move - moves).size > 1
-  winner_strategy.include?(moves)
+  raise NoSuchStrategyError, "NoSuchStrategyError wrong_turn" if (early_move - moves.to_h.values.to_a).size > 1
+  winner_strategy.include?(moves.to_h.values)
 end
 
 def rps_game_winner(array = [])
   raise WrongNumberOfPlayersError, "WrongNumberOfPlayersError, number_of_players = #{array.size}" if array.size>2
-  newgame = []
-  array.each{|x| newgame<<x.last}
-  if victory_rules?(newgame)
+  if victory_rules?(array)
     array[0]
   else
     array[1]
   end
 end
+# puts rps_game_winner([%w[player1 S], %w[player2 R]])
 
-puts rps_game_winner([%w[player1 S], %w[player2 R]])
+array = [%w[player1 P], %w[player2 S]]
+early_move = %w[R P S]
+winner_strategy = [%w[R S], %w[P R], %w[S P], %w[S S], %w[P P], %w[R R]]
+puts winner_strategy.include?(array.map{|x| x.last})
+
+
