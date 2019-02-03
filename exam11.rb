@@ -14,7 +14,7 @@ class Desert
 	end
 
 	def healthy?
-		return false unless calories.nil?
+		return false unless !calories.nil?
 		(0..200).include?(calories)
 	end
 
@@ -23,7 +23,7 @@ class Desert
 	end
 end
 
-b = Desert.new(201, "Вкусняшка")
+b = Desert.new(25, "Вкусняшка")
 
 puts b.calories
 puts b.names
