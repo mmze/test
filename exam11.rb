@@ -11,20 +11,11 @@ class Desert
 	def initialize(calories = nil, names = nil)
 		@calories = calories
 		@names = names
-
-		healthy?
 	end
 
 	def healthy?
-		if calories.class == NilClass
-			return true
-		elsif calories < 200
-			puts "можно"
-			return true
-		else
-			puts "Хорошо подумай"
-			return false
-		end
+		return false unless calories.nil?
+		(0..200).include?(calories)
 	end
 
 	def delicious?
@@ -32,14 +23,9 @@ class Desert
 	end
 end
 
-b = Desert.new(199, "Вкусняшка")
+b = Desert.new(201, "Вкусняшка")
 
 puts b.calories
 puts b.names
 puts b.delicious?
-
-a = Desert.new()
-
-puts b.calories
-puts b.names
-puts b.delicious?
+puts b.healthy?
