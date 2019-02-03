@@ -15,15 +15,8 @@ class Desert
 	end
 
 	def healthy?
-		if calories.class == NilClass
-			return true
-		elsif calories < 200
-			puts "можно"
-			return true
-		else
-			puts "Хорошо подумай"
-			return false
-		end
+		return false unless !calories.nil?
+		(0..200).include?(calories)
 	end
 
 	def delicious?
@@ -40,11 +33,7 @@ class JellyBean < Desert
 	end
 
 	def delicious?
-		if flavor == "black licorice"
-			return false
-		else
-			return true
-		end
+		flavor == "black licorice"
 	end
 
 end
@@ -52,4 +41,4 @@ end
 b = JellyBean.new("black licorice")
 
 puts JellyBean.new('').delicious?
-puts JellyBean.new("black licorice").delicious?
+puts JellyBean.new("black licorice1").delicious?

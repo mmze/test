@@ -23,7 +23,7 @@ class Desert
 	end
 end
 
-b = Desert.new(25, "Вкусняшка")
+b = Desert.new(nil, "Вкусняшка")
 
 puts b.calories
 puts b.names

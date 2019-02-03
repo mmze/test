@@ -16,11 +16,11 @@ questarrays = %w[cars for potatoes racs four scar creams scream]
 
 
 def combine(array = nil)
-	return nil unless array.is_a?(Array) or !array.nil?
-		combarray = array.each_with_object(Hash.new []) do |elem, hash|
-			hash[elem.chars.sort] += [elem]
+	return nil unless array.is_a?(Array) or !array.is_a? NilClass
+		anagram = array.each_with_object(Hash.new []) do |elem, hash|
+			hash[elem.chars.sort] += [elem];
 		end
-		combarray.values
+    anagram.values
 end
 
 puts combine(questarrays)

@@ -23,7 +23,6 @@
 # 	end
 
 # end
-require 'rspec'
 questarrays = [
 	[1, 2, 3, 4, 4],
 	[21.0, 2, 3, 4, 4],
@@ -33,12 +32,12 @@ questarrays = [
 	nil
 
 ]
-def max_odd(array)
+def max_odd(array = nil)
 	return nil if array.is_a? NilClass
 	a = array.compact.flatten.find_all{|x| x.is_a?(Integer) or x.is_a?(Float)}.select{|x| x % 2 == 1 }.max.to_i
   return a if a !=0
 end
 
 # puts "Вывод тестовых заданий: "
-puts max_odd([21.5, 2, 3, 4, 4])
+puts max_odd()
 
