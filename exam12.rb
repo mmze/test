@@ -24,7 +24,6 @@ class Desert
 	end
 end
 
-
 class JellyBean < Desert
 	attr_accessor :flavor
 
