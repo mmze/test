@@ -9,14 +9,6 @@
 # palindrome?("Abracadabra") # => false
 
 
-begin
-    require 'unicode'
-    puts "gem: unicode успешно подключен"
-rescue LoadError
-    puts "!!!Не установлен gem: unicode!!!"
-    puts "---Кирилица возможно обрабатывается неверно---"
-end
-
 questions =
 [
     "A man, a plan, a canal -- Panama",
