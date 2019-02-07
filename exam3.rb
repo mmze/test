@@ -8,21 +8,6 @@
 # max_odd(%w[ololo fufufu]) # => nil
 # max_odd([2, 2, 4]) # => nil
 
-# def max_odd(array = nil)
-# 	if array.class == NilClass
-# 		return nil
-# 	else
-# 		a = array.find_all{|key| key.class == Integer || key.class == Float}.\
-# 				find_all{|i| i.round % 2 == 1}.max.to_i
-# 		if a == 0
-
-# 			return nil
-# 		else
-# 			return a
-# 		end
-# 	end
-
-# end
 questarrays = [
 	[1, 2, 3, 4, 4],
 	[21.0, 2, 3, 4, 4],
@@ -38,6 +23,4 @@ def max_odd(array = nil)
   return a if a !=0
 end
 
-# puts "Вывод тестовых заданий: "
-puts max_odd()
 
