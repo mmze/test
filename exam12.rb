@@ -10,8 +10,6 @@ class Desert
 	def initialize(calories = nil, names = nil)
 		@calories = calories
 		@names = names
-
-		healthy?
 	end
 
 	def healthy?
@@ -20,7 +18,7 @@ class Desert
 	end
 
 	def delicious?
-		return true
+		true
 	end
 end
 
@@ -32,12 +30,11 @@ class JellyBean < Desert
 	end
 
 	def delicious?
-		flavor == "black licorice"
+		flavor != "black licorice"
 	end
 
 end
 
-b = JellyBean.new(1, "аыв", "выфа")
+b = JellyBean.new(1, "аыв", "black licorice")
+puts b.delicious?
 
-puts JellyBean.new('').delicious?
-puts JellyBean.new("black licorice1").delicious?

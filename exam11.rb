@@ -24,7 +24,6 @@ class Desert
 end
 
 b = Desert.new(201, "fds")
-
 puts b.calories
 puts b.names
 puts b.delicious?

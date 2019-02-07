@@ -8,8 +8,6 @@
 # multiply_numbers('sssdd34') # => 12
 # multiply_numbers(2.3) # => 6
 # multiply_numbers([5, 6, 4]) # => 120
-# inputs.to_s.gsub(/[^0-9]/, "").split('').each{|x| x = x.to_i * x.to_i}
-
 
 questarrays = [
 	nil,
@@ -27,9 +25,8 @@ def multiply_numbers(inputs = nil)
 end
 
 puts "Вывод тестовых заданий: "
-questarrays.each{|elem|
+questarrays.each do |elem|
 	puts multiply_numbers(elem)
-
-}
+end
 
 
