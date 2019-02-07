@@ -28,7 +28,7 @@ end
 class JellyBean < Desert
 	attr_accessor :flavor
 
-	def initialize(flavor = nil)
+	def initialize(calories = nil, names = nil, flavor = nil)
 		@flavor = flavor
 	end
 
@@ -38,7 +38,7 @@ class JellyBean < Desert
 
 end
 
-b = JellyBean.new("black licorice")
+b = JellyBean.new(1, "аыв", "выфа")
 
 puts JellyBean.new('').delicious?
 puts JellyBean.new("black licorice1").delicious?

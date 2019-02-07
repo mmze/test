@@ -8,7 +8,7 @@ class Desert
 
 	attr_accessor :calories, :names
 
-	def initialize(calories = nil, names = nil)
+	def initialize(calories, names)
 		@calories = calories
 		@names = names
 	end
@@ -19,11 +19,11 @@ class Desert
 	end
 
 	def delicious?
-		return true
+		true
 	end
 end
 
-b = Desert.new(nil, "Вкусняшка")
+b = Desert.new(201, "fds")
 
 puts b.calories
 puts b.names

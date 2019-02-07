@@ -24,13 +24,7 @@ def connect_hashes(hash1, hash2)
   summh2 = hash2.inject(0){|result, (key, value)| result + value.to_i}
 
   merge = hash1.merge(hash2) do |key, h1, h2|
-    if summh2 == summh1
-      h2
-    elsif summh2 < summh1
-      h1
-    else
-      h2
-    end
+    summh2 >= summh1 ? h2 : h1
   end
 
   merge.delete_if{|key, value| value < 10}.sort_by{ |key, value| value }.to_h
