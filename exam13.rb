@@ -9,6 +9,7 @@ module SayPalindrome
 		end
 end
 
+
 class String
 	include SayPalindrome
 end

@@ -7,7 +7,6 @@ def date_in_future(int)
 	end
 end
 
-
 begin
 	require "active_support/time"
 	require 'date'

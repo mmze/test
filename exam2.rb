@@ -11,8 +11,3 @@
 def coincedence(array = [], range = nil)
 	array.select{|x| range.include?(x)}
 end
-
-
-
-
-
