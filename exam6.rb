@@ -41,7 +41,6 @@ def rps_game_winner(array = [])
   end
 end
 # puts rps_game_winner([%w[player1 S], %w[player2 R]])
-
 array = [%w[player1 P], %w[player2 S]]
 early_move = %w[R P S]
 winner_strategy = [%w[R S], %w[P R], %w[S P], %w[S S], %w[P P], %w[R R]]
