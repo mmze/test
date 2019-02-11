@@ -8,7 +8,7 @@
 #  # => {'doo' => 3, 'bee' => 2}
 
 def count_words(string)
-  string.gsub(/[,-]/, "").downcase.split(' ').inject(Hash.new(0)) do |hash, elem|
+  string.gsub(/[^A-zА-я]/, " ").downcase.split(' ').inject(Hash.new(0)) do |hash, elem|
     hash[elem] = hash[elem] + 1
     hash
   end
@@ -16,3 +16,4 @@ end
 
 puts count_words("A man, a plan, a canal --- Panama")
 puts count_words "Doo bee doo bee doo"
+

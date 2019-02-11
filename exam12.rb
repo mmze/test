@@ -7,9 +7,9 @@ class Desert
 
 	attr_accessor :calories, :names
 
-	def initialize(calories = nil, names = nil)
+	def initialize(calories = nil, name = nil)
 		@calories = calories
-		@names = names
+		@name = name
 	end
 
 	def healthy?
@@ -23,14 +23,17 @@ class Desert
 end
 
 class JellyBean < Desert
+
 	attr_accessor :flavor
 
 	def initialize(calories = nil, names = nil, flavor = nil)
-		@flavor = flavor
+		super(flavor)
+			self.flavor = flavor
 	end
 
 	def delicious?
-		flavor != "black licorice"
+		super
+			flavor != "black licorice"
 	end
 
 end

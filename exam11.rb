@@ -14,7 +14,7 @@ class Desert
 	end
 
 	def healthy?
-		return false unless !calories.nil?
+		return false if calories.nil?
 		(0..200).include?(calories)
 	end
 

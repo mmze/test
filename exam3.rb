@@ -15,12 +15,11 @@ questarrays = [
 	%w[ololo fufufu],
 	[2, 2, 4],
 	nil
-
 ]
+
 def max_odd(array = nil)
 	return nil if array.is_a? NilClass
-	a = array.compact.flatten.find_all{|x| x.is_a?(Integer) or x.is_a?(Float)}.select{|x| x % 2 == 1 }.max.to_i
-  return a if a !=0
+	array.flatten.select{|x| x % 2 == 1 if x.is_a?Numeric}.max
 end
 
-
+p max_odd(%w[ololo fufufu])
