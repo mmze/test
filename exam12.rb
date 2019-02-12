@@ -5,9 +5,9 @@
 # «black licorice».
 class Desert
 
-	attr_accessor :calories, :names
+	attr_accessor :calories, :name
 
-	def initialize(calories = nil, name = nil)
+	def initialize(calories, name)
 		@calories = calories
 		@name = name
 	end
@@ -26,18 +26,18 @@ class JellyBean < Desert
 
 	attr_accessor :flavor
 
-	def initialize(calories = nil, names = nil, flavor = nil)
-		super(flavor)
+	def initialize(calories, name, flavor)
+		super(calories, name)
 			self.flavor = flavor
 	end
 
 	def delicious?
-		super
-			flavor != "black licorice"
+			@flavor != "black licorice"
 	end
 
 end
 
 b = JellyBean.new(1, "аыв", "black licorice")
+p b.name
 puts b.delicious?
 
