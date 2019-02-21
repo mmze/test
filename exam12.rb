@@ -28,7 +28,7 @@ class JellyBean < Desert
 
 	def initialize(calories, name, flavor)
 		super(calories, name)
-			self.flavor = flavor
+			@flavor = flavor
 	end
 
 	def delicious?
@@ -37,7 +37,7 @@ class JellyBean < Desert
 
 end
 
-b = JellyBean.new(1, "аыв", "black licorice")
+b = JellyBean.new(200, "аыв", "black licorice")
 p b.name
 puts b.delicious?
 
